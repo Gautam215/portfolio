@@ -24,7 +24,7 @@ export const experiences: Experience[] = [
     title: 'Senior Secondary (PCM)',
     organization: 'Shri Chaitanya Techno School',
     location: 'Visakhapatnam, Andhra Pradesh',
-    period: '2020 - 2022',
+    period: '2022',
     description: [
       'Completed Senior Secondary education with a focus on Physics, Chemistry, and Mathematics',
     ],

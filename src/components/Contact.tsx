@@ -9,25 +9,20 @@ import { personalData } from '@/data/personal'
 export function Contact() {
   const [submitted, setSubmitted] = useState(false)
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     const form = e.currentTarget
-    const data = new FormData(form)
+    const formData = new FormData(form)
+    const name = formData.get('name')
+    const email = formData.get('email')
+    const subject = formData.get('subject')
+    const message = formData.get('message')
 
-    try {
-      const response = await fetch('https://formspree.io/f/your-form-id', {
-        method: 'POST',
-        body: data,
-        headers: { Accept: 'application/json' },
-      })
-      if (response.ok) {
-        setSubmitted(true)
-        form.reset()
-      }
-    } catch {
-      setSubmitted(true)
-      form.reset()
-    }
+    const mailtoLink = `mailto:${personalData.email}?subject=${encodeURIComponent(`Portfolio Contact: ${subject}`)}&body=${encodeURIComponent(`From: ${name} (${email})\n\n${message}`)}`
+
+    window.open(mailtoLink, '_blank')
+    setSubmitted(true)
+    form.reset()
   }
 
   const contactInfo = [

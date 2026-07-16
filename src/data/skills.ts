@@ -35,6 +35,15 @@ export const skillCategories: SkillCategory[] = [
       'Creativity',
       'Enthusiasm',
       'Teamwork',
+      'Self-Directed',
+    ],
+  },
+  {
+    title: 'Other',
+    skills: [
+      'Data Networking',
+      'Data Modeling Tools',
+      'Communication Strategies',
     ],
   },
 ]
